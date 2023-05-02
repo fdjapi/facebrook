@@ -1,4 +1,4 @@
-# Facebrook
+# Facebrook_app
 
 Proof-of-concept Facebook clone in C.
 The only dependency is SQLite3.
