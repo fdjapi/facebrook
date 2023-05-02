@@ -40,9 +40,7 @@ jobs:
           
       - name: Install gke-gcloud-auth-plugin
         run: |
-          sudo apt-get update
-          sudo apt-get install -y google-cloud-sdk-kubectl
-          gcloud components install gke-gcloud-auth-plugin
+          gcloud components install kubectl
           
           
       - name: Deploy to GKE
