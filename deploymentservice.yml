@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodeapp-deployment
+  name: facebrook-deployment
   labels:
-    app: nodeapp
+    app: facebrook
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nodeapp
+      app: facebrook
   template:
     metadata:
       labels:
-        app: nodeapp 
+        app: facebrook 
     spec:
       containers:
-      - name: nodeserver
-        image: thetips4you/nodeapp:latest
+      - name: facebrook
+        image: fdjapi10/facebrook:latest
         ports:
-        - containerPort: 3000
+        - containerPort: 16000
         
         
 ---
@@ -26,13 +26,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nodeapp-service
+  name: facebrook-service
 spec:
   selector:
-    app: nodeapp 
+    app: facebrook 
   type: LoadBalancer
   ports:
   - protocol: TCP
     port: 5000
-    targetPort: 3000
+    targetPort: 16000
     nodePort: 31110
