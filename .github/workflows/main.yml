@@ -38,7 +38,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           
           
-      - name: Install gke-gcloud-auth-plugin
+      - name: Install kubectl
         run: |
           sudo apt-get update
           sudo apt-get install -y apt-transport-https ca-certificates curl
@@ -46,6 +46,16 @@ jobs:
           echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
           sudo apt-get update
           sudo apt-get install -y kubectl
+          
+      - name: Install gke-gcloud-auth-plugin
+        run: |
+           VERSION="v1.0.0"
+           OS=$(uname | tr '[:upper:]' '[:lower:]')
+           ARCH=$(uname -m | sed 's/x86_64/amd64/')
+           wget -q https://storage.googleapis.com/cloud-sdk/gke-gcloud-auth-plugin/$VERSION/gke-gcloud-auth-plugin-$OS-$ARCH.tar.gz
+           tar -xzf gke-gcloud-auth-plugin-$OS-$ARCH.tar.gz
+           sudo mv gke-gcloud-auth-plugin /usr/local/bin
+           rm gke-gcloud-auth-plugin-$OS-$ARCH.tar.gz   
 
           
           
