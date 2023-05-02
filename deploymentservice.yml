@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: facebrook
-        image: fdjapi10/facebrook:latest
+        image: fdjapi10/facebrook:main
         ports:
         - containerPort: 16000
         
@@ -35,4 +35,4 @@ spec:
   - protocol: TCP
     port: 5000
     targetPort: 16000
-    nodePort: 31110
+    nodePort: 30110
