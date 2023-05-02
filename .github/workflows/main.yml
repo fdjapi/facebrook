@@ -47,15 +47,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y kubectl
           
-      - name: Install gke-gcloud-auth-plugin
-        run: |
-           VERSION="v1.0.0"
-           OS=$(uname | tr '[:upper:]' '[:lower:]')
-           ARCH=$(uname -m | sed 's/x86_64/amd64/')
-           wget -q https://storage.googleapis.com/cloud-sdk/gke-gcloud-auth-plugin/$VERSION/gke-gcloud-auth-plugin-$OS-$ARCH.tar.gz
-           tar -xzf gke-gcloud-auth-plugin-$OS-$ARCH.tar.gz
-           sudo mv gke-gcloud-auth-plugin /usr/local/bin
-           rm gke-gcloud-auth-plugin-$OS-$ARCH.tar.gz   
+      
 
           
           
